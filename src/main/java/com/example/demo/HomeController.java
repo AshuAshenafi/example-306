@@ -23,7 +23,7 @@ public class HomeController {
 
         //Now let's create a movie
         Movie movie = new Movie();
-        movie.setTitle("Star Movie");
+        movie.setTitle("Star Movie ");
         movie.setYear(2017);
         movie.setDescription("About Stars ... ");
 
@@ -32,7 +32,7 @@ public class HomeController {
         movies.add(movie);
 
         movie = new Movie();
-        movie.setTitle("DeathStar Ewoks");
+        movie.setTitle("DeathStar Ewoks ");
         movie.setYear(2011);
         movie.setDescription("About Ewoks on the Deathstar ...");
         movies.add(movie);
@@ -43,6 +43,8 @@ public class HomeController {
         //Save the director to the database
         directorRepository.save(director);
 
-        //Grad all the directors from the
+        //Grad all the directors from the database and send them to the template
+        model.addAttribute("directors", directorRepository.findAll());
+        return "index";
     }
 }
